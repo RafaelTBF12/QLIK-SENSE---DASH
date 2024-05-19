@@ -1,4 +1,3 @@
-![image](https://github.com/RafaelTBF12/QLIK-SENSE---DASH/assets/170127431/d9c8be1c-fd5d-401b-9892-587913335ccf)
 # Criação de Dashboard em Qlik Sense
 
 ## Entendimento do Problema
@@ -19,24 +18,12 @@ O dashboard inclui várias seções e gráficos que destacam diferentes aspectos
 
 1. **Carregar dados no Qlik Sense Desktop**: Integração com arquivos excel.
 
-2. **Preparação dos Dados no Desktop**: 
-
-3. **KPI's**:
-   
-Criação de KPI para:
-- Receita
-- Ticket Médio
-- Lucro
-- Vendas
-
-Além dessas métricas principais, o dashboard pode incluir filtros interativos que permitem aos usuários segmentar os dados por período, região, produto ou qualquer outra dimensão relevante. Isso proporciona uma visão personalizada e detalhada das finanças, adaptada às necessidades de diferentes usuários dentro da empresa
-
-   
-2. **Carregar dados no Qlik Sense Desktop**: As colunas que não "Hórario", "Task ID" e "Identificação" foram desflegada pois não tinham uso em nossos visuais
+2. **Preparação dos Dados no Desktop**: As colunas que não "Hórario", "Task ID" e "Identificação" foram desflegada pois não tinham uso em nossos visuais
 
 3. **Editor de Texto**: Notepad ++
 
-   
+   <p align="center">
+   <img src= "P1 - NOTEPAD++.jpeg">   
    
 5. **FrameWork para Designer**: BootStrap adicionado ao Head do HTML
       
@@ -52,7 +39,15 @@ Além dessas métricas principais, o dashboard pode incluir filtros interativos 
        col-xs-  1 a 12
        col-md-  1 a 12
    
+3. **KPI's**:
+   
+Criação de KPI para:
+- Receita
+- Ticket Médio
+- Lucro
+- Vendas
 
+Além dessas métricas principais, o dashboard pode incluir filtros interativos que permitem aos usuários segmentar os dados por período, região, produto ou qualquer outra dimensão relevante. Isso proporciona uma visão personalizada e detalhada das finanças, adaptada às necessidades de diferentes usuários dentro da empresa
 
 4. **Graficos Gerais**
    
@@ -69,72 +64,6 @@ Além dessas métricas principais, o dashboard pode incluir filtros interativos 
        if((avg({<Ano_Ordem={"$(=MAX(Ano_Ordem))"}>} Dias_Entrega)/21)>1,1-((avg({<Ano_Ordem={"$(=MAX(Ano_Ordem))"}>} Dias_Entrega)/21)-1),1)
 
    
-     FrameWork para Designer: BootStrap adicionado ao Head do HTML
-      
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-
-    Adicionando div de container:
-   
-       container-fluid
-       row
-       col-xs-  1 a 12
-       col-md-  1 a 12
-   
-     TASKS ENCERRADAS = 
-        
-        Table.DuplicateColumn(#"Added Conditional Column1", "dueDateTime", "dueDateTime - Copy")   
-   
-     Calendar_suporte = 
-        
-        FILTER(DISTINCT(UNION(SELECTCOLUMNS('Consolidado';"SA";'Consolidado'[SA Plan]); SELECTCOLUMNS('Consolidado';"SA"; Consolidado[SA Real])));[SA] <> BLANK())
-
-6. **Correlação de Queries**: As Queries foram integradas para atender as necessidades supracitadas, dessa forma posibilitamos a criação de visual que relacionacem as atividades aos usuários, data, bucktes do planner, áreas das atividades e ao status dela:
-
-   <p align="center">
-   <img height="240" right="130" src= "QUERIES.jpeg">  <img height="240" right="130" src= "VIEW MODELO.jpeg">
-
-
-7. **Curva S**: Adicionar filtros visuais para campos relevantes, como "Região de Entrega", "Tipo de Produto", "Tipo de Cliente" e "Método de Entrega".
-
-
-     Cálculo de Tarefas Concluídas e Planejadas Acumuladas = 
-        
-         CALCULATE([Total acumulado de SA Real]; FILTER(ALL('Calendar_suporte'[SA]); 'Calendar_suporte'[SA]<=MAX('Calendar_suporte'[SA])))
-         CALCULATE([Soma de quantidade por SA Plam]; FILTER(ALL('Calendar_suporte'[SA]); 'Calendar_suporte'[SA]<=MAX('Calendar_suporte'[SA])))
-
-
-     Cálculo das Proporções Acumuladas = 
-        
-         DIVIDE('consolidado'[S Curve (EEM) - sum cumulative complete tasks]; 'Consolidado'[S Curve - sum of all planner tasks accumulated]; BLANK())
-         DIVIDE('Consolidado'[S Curve (EEM) - sum cumulative planned tasks]; 'Consolidado'[S Curve (EEM) - sum of all planned tasks accumulated]; BLANK())
-
-
-Resultado final:
-
-   <p align="center">
-   <img src= "CURVA S.jpeg">
-
-7. **Visuais Gerais**: Foram criados os visuais de tasks realizadas, atrasadas e planejadas, além do ranking de execução e tasks atrasadas:
-
-   <p align="center">
-   <img src= "IND GERAIS.jpeg">
-
-8. **CRONOGRAMA**: Esse foi um gráfico criado para acompanhamentos das tasks em andamento no dia atual (Today), porém serve para vizualizar as proximas ações bem como as que já foram executadas:
-
-   <p align="center">
-   <img src= "CRONOGRAMA.jpeg">
-
-09. **FOLLOW UP**: Por fim um follow up do planner facilita a contextualização do arquivo
-
-   <p align="center">
-   <img src= "FOLLOW UP.jpeg">
-
-10. **Customização do Relatório**:
-
-Inserção de Imagens e Formas: Adição de elementos gráficos, como retângulos e logotipo da empresa, para melhorar o design do relatório.
 
 ## Resultado Final
 
