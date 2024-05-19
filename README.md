@@ -33,7 +33,7 @@ Além dessas métricas principais, o dashboard pode incluir filtros interativos 
 4. **Multiplos Visuais**
 
    <p align="center">
-   <img src= "P2 - DRIYIN.jpeg">   
+   <img src= "GRAF.jpeg">   
 
 4. **Graficos Gerais**
    
