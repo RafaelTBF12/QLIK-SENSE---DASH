@@ -52,7 +52,7 @@ Além dessas métricas principais, o dashboard pode incluir filtros interativos 
 4. **Graficos Gerais**
    
    <p align="center">
-   <img src= "P2 - Geral.jpeg">
+   <img src= "P2 - GERAL.jpeg">
     
     MÉDIA DE DIAS DE ENTREGA = 
         
@@ -63,8 +63,11 @@ Além dessas métricas principais, o dashboard pode incluir filtros interativos 
         
        if((avg({<Ano_Ordem={"$(=MAX(Ano_Ordem))"}>} Dias_Entrega)/21)>1,1-((avg({<Ano_Ordem={"$(=MAX(Ano_Ordem))"}>} Dias_Entrega)/21)-1),1)
 
-   
+5. **MAPA**: Configuração do gráfico de mapa
 
+   <p align="center">
+   <img src= "MAPA 1.jpeg">
+   
 ## Resultado Final
 
-O dashboard criado fornece uma visão abrangente das operações de entrega, permitindo um acompanhamento eficiente das tarefas e facilitando a tomada de decisões estratégicas. Com a integração do Microsoft Planner ao Power BI, a empresa consegue monitorar o progresso das entregas e a performance da equipe em tempo real, promovendo uma gestão mais eficaz e proativa.
+O dashboard desenvolvido oferece uma visão completa dos indicadores financeiros da empresa, permitindo um monitoramento eficaz das métricas essenciais e facilitando a tomada de decisões estratégicas. Utilizando o Qlik Sense, a empresa pode acompanhar em tempo real a receita, o ticket médio, o lucro e as vendas, promovendo uma gestão financeira mais eficiente e proativa.
