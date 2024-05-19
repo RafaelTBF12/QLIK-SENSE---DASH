@@ -12,6 +12,8 @@ A construção deste dashboard começa com a coleta de dados financeiros detalha
 
 O dashboard inclui várias seções e gráficos que destacam diferentes aspectos das operações financeiras:
 
+   <p align="center">
+   <img src= "P1 - OVERVIEW.jpeg">
 
 ### Passos Seguidos
 
