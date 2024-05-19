@@ -20,25 +20,6 @@ O dashboard inclui várias seções e gráficos que destacam diferentes aspectos
 
 2. **Preparação dos Dados no Desktop**: As colunas que não "Hórario", "Task ID" e "Identificação" foram desflegada pois não tinham uso em nossos visuais
 
-3. **Editor de Texto**: Notepad ++
-
-   <p align="center">
-   <img src= "P1 - NOTEPAD++.jpeg">   
-   
-5. **FrameWork para Designer**: BootStrap adicionado ao Head do HTML
-      
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-
-    Adicionando div de container:
-   
-       container-fluid
-       row
-       col-xs-  1 a 12
-       col-md-  1 a 12
-   
 3. **KPI's**:
    
 Criação de KPI para:
@@ -47,7 +28,12 @@ Criação de KPI para:
 - Lucro
 - Vendas
 
-Além dessas métricas principais, o dashboard pode incluir filtros interativos que permitem aos usuários segmentar os dados por período, região, produto ou qualquer outra dimensão relevante. Isso proporciona uma visão personalizada e detalhada das finanças, adaptada às necessidades de diferentes usuários dentro da empresa
+Além dessas métricas principais, o dashboard pode incluir filtros interativos que permitem aos usuários segmentar os dados por período, região, produto ou qualquer outra dimensão relevante. Isso proporciona uma visão personalizada e detalhada das finanças, adaptada às necessidades de diferentes usuários dentro da empresa.
+
+4. **Multiplos Visuais**
+
+   <p align="center">
+   <img src= "P2 - DRIYIN.jpeg">   
 
 4. **Graficos Gerais**
    
