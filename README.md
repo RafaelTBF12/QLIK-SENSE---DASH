@@ -1,4 +1,4 @@
-
+![image](https://github.com/RafaelTBF12/QLIK-SENSE---DASH/assets/170127431/d9c8be1c-fd5d-401b-9892-587913335ccf)
 # Criação de Dashboard em Qlik Sense
 
 ## Entendimento do Problema
@@ -17,38 +17,71 @@ O dashboard inclui várias seções e gráficos que destacam diferentes aspectos
 
 ### Passos Seguidos
 
-1. **Planejamento e Criação do Planner**:
+1. **Carregar dados no Qlik Sense Desktop**: Integração com arquivos excel.
 
-- Levantamento de Tarefas: Identificação e documentação de todas as tarefas necessárias para o processo de entrega.
-- Criação de Cronograma: Estabelecimento de um cronograma para a execução das tarefas, definindo prazos e responsáveis.
-- Definição de Responsáveis: Atribuição das tarefas aos membros da equipe no Microsoft Planner.
+2. **Preparação dos Dados no Desktop**: 
 
+3. **KPI's**:
+   
+Criação de KPI para:
+- Receita
+- Ticket Médio
+- Lucro
+- Vendas
+
+Além dessas métricas principais, o dashboard pode incluir filtros interativos que permitem aos usuários segmentar os dados por período, região, produto ou qualquer outra dimensão relevante. Isso proporciona uma visão personalizada e detalhada das finanças, adaptada às necessidades de diferentes usuários dentro da empresa
 
    
-2. **Carregar dados no Qlik Sense Desktop**: Integração com Power BI
+2. **Carregar dados no Qlik Sense Desktop**: As colunas que não "Hórario", "Task ID" e "Identificação" foram desflegada pois não tinham uso em nossos visuais
+
+3. **Editor de Texto**: Notepad ++
+
+   
+   
+5. **FrameWork para Designer**: BootStrap adicionado ao Head do HTML
+      
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+    Adicionando div de container:
+   
+       container-fluid
+       row
+       col-xs-  1 a 12
+       col-md-  1 a 12
    
 
 
-
-3. **Preparação dos Dados no Power BI Desktop**:
-
-
-
-4. **Colunas Condicionais**: Para calcular a curva S alguns formulas foram desenvolvidas:
-
+4. **Graficos Gerais**
+   
+   <p align="center">
+   <img src= "P2 - Geral.jpeg">
     
-    STATUS = 
+    MÉDIA DE DIAS DE ENTREGA = 
         
-        Table.AddColumn(Source, "Status", each if [percentComplete] = 0 then "Não Iniciada" else if [percentComplete] = 50 then "Em andamento" else if [percentComplete] = 100 then "Concluída" else null)
+        avg({<Ano_Ordem={"$(=MAX(Ano_Ordem))"}>} Dias_Entrega)
 
 
-     S/A PLAN = 
+     Comprimento de Meta = 
         
-       Table.AddColumn(#"Semana Real", "SA Plan", each Text.Combine({Text.From([Ano Plan], "pt-BR"), Text.From([Semana Plan], "pt-BR")}, "-"), type text)
+       if((avg({<Ano_Ordem={"$(=MAX(Ano_Ordem))"}>} Dias_Entrega)/21)>1,1-((avg({<Ano_Ordem={"$(=MAX(Ano_Ordem))"}>} Dias_Entrega)/21)-1),1)
+
    
-     S/A REAL = 
-        
-        Table.AddColumn(#"SA Plan", "SA Real", each Text.Combine({Text.From([Ano Real], "pt-BR"), Text.From([Semana Real], "pt-BR")}, "-"), type text)
+     FrameWork para Designer: BootStrap adicionado ao Head do HTML
+      
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+    Adicionando div de container:
+   
+       container-fluid
+       row
+       col-xs-  1 a 12
+       col-md-  1 a 12
    
      TASKS ENCERRADAS = 
         
@@ -58,13 +91,13 @@ O dashboard inclui várias seções e gráficos que destacam diferentes aspectos
         
         FILTER(DISTINCT(UNION(SELECTCOLUMNS('Consolidado';"SA";'Consolidado'[SA Plan]); SELECTCOLUMNS('Consolidado';"SA"; Consolidado[SA Real])));[SA] <> BLANK())
 
-5. **Correlação de Queries**: As Queries foram integradas para atender as necessidades supracitadas, dessa forma posibilitamos a criação de visual que relacionacem as atividades aos usuários, data, bucktes do planner, áreas das atividades e ao status dela:
+6. **Correlação de Queries**: As Queries foram integradas para atender as necessidades supracitadas, dessa forma posibilitamos a criação de visual que relacionacem as atividades aos usuários, data, bucktes do planner, áreas das atividades e ao status dela:
 
    <p align="center">
    <img height="240" right="130" src= "QUERIES.jpeg">  <img height="240" right="130" src= "VIEW MODELO.jpeg">
 
 
-6. **Curva S**: Adicionar filtros visuais para campos relevantes, como "Região de Entrega", "Tipo de Produto", "Tipo de Cliente" e "Método de Entrega".
+7. **Curva S**: Adicionar filtros visuais para campos relevantes, como "Região de Entrega", "Tipo de Produto", "Tipo de Cliente" e "Método de Entrega".
 
 
      Cálculo de Tarefas Concluídas e Planejadas Acumuladas = 
